@@ -14,7 +14,7 @@ RUN apt-get install -qqy --no-install-recommends software-properties-common ca-c
 
 # add pipewire repo
 RUN add-apt-repository ppa:pipewire-debian/pipewire-upstream -y && \
-    apt-get update -qq && apt-get install -qqy pipewire
+    apt-get update -qq && apt-get install -qqy pipewire pipewire-jack
 
 # install newer wine
 RUN mkdir -pm755 /etc/apt/keyrings && \
