@@ -26,7 +26,7 @@ RUN apt-get update -qq && \
     apt-get clean
 
 # fetch wineasio
-RUN git clone --recursive https://github.com/wineasio/wineasio.git --depth=1
+RUN git clone --recursive https://github.com/mmtrt/wineasio.git --depth=1 -b main
 
 # build wineasio
 WORKDIR /wineasio
