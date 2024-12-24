@@ -40,7 +40,7 @@ INCLUDE_PATH         += -I/opt/wine-stable/include
 INCLUDE_PATH         += -I/opt/wine-stable/include/wine/windows
 INCLUDE_PATH         += -I/opt/wine-staging/include
 INCLUDE_PATH         += -I/opt/wine-staging/include/wine/windows
-LIBRARIES             = $(shell pkg-config --libs jack)
+LIBRARIES = -L/usr/lib/pipewire-0.3/jack -ljack -ljacknet
 
 # 64bit build needs an extra flag
 ifeq ($(M),64)
