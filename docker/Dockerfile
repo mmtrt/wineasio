@@ -9,8 +9,12 @@ RUN dpkg --add-architecture i386
 RUN apt-get update -qq && apt-get upgrade -qqy && apt-get clean
 
 # install packages needed for build
-RUN apt-get install -qqy --no-install-recommends ca-certificates gcc-multilib git libjack-jackd2-dev libjack-jackd2-dev:i386 make openssl pkg-config wget && \
+RUN apt-get install -qqy --no-install-recommends software-properties-common ca-certificates gcc-multilib git libjack-jackd2-dev libjack-jackd2-dev:i386 make openssl pkg-config wget && \
     apt-get clean
+
+# add pipewire repo
+RUN add-apt-repository ppa:pipewire-debian/pipewire-upstream -y && \
+    apt-get update -qq && apt-get install -qqy pipewire
 
 # install newer wine
 RUN mkdir -pm755 /etc/apt/keyrings && \
